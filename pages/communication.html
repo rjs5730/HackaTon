@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/dist/css/style.css' />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/dist/js/main.js"></script>
+    <style>
+        .center-box {
+            float: left;
+            width: 70%;
+        }
+        .right-box {
+            float: right;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="center-box" id="canvas">
+
+    <canvas class="whiteboard" ></canvas>
+
+    <div class="colors">
+        <div class="color black"></div>
+        <div class="color red"></div>
+        <div class="color green"></div>
+        <div class="color blue"></div>
+        <div class="color yellow"></div>
+    </div>
+</div>
+
+<div class='right-box' id="chat">
+
+    <ul class='pages' >
+        <li class="chat page">
+            <div class="chatArea">
+                <ul class="messages"></ul>
+            </div>
+            <input class="inputMessage" placeholder="Type here..."/>
+        </li>
+        <li class="login page">
+            <div class="form">
+                <h3 class="title">사용할 이름을 적으세요.</h3>
+                <input class="usernameInput" type="text" maxlength="14" />
+            </div>
+        </li>
+    </ul>
+
+
+
+</div>
+
+<!--
+<script>
+    $(document).ready(function(){
+        $('#chat').load('/chat.html');
+        $('#canvas').load('/Canvas.html');
+    });
+</script>
+-->
+</body>
+</html>
