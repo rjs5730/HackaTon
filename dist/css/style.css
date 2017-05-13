@@ -246,7 +246,9 @@ ul {
     height: 229px;
     position: absolute;
     width: 100%;
-
+}
+.content-wrapper, .right-side{
+  height:900px !important;
 }
 .color{
   width:20px;
