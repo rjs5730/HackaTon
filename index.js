@@ -118,6 +118,7 @@ io.sockets.on('connection',function(socket) {
     socket.on('youtubeURLreceive', function(data) {
           socket.emit('youtubeURL',data);
           socket.broadcast.emit('youtubeURL',data);
+          console.log('execute'+data);
     });
 
     //파일 업로드 부분

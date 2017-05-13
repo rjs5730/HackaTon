@@ -359,7 +359,7 @@ desired effect
        
 
        <script>
-       console.log('execute');
+
     //이미지 로드
 function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;i<r;i++){t+=String.fromCharCode(n[i])}return window.btoa(t)}
 
@@ -368,6 +368,7 @@ function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;
     var $inputYoutubeURL=$('.inputYoutubeURL');
 
     socket.on('imageConversionByClient', function(data) {
+      console.log('execute');
         $("#img").attr("src","data:image/png;base64,"+b64(data.buffer));
       });
 
