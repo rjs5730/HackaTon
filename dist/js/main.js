@@ -228,6 +228,8 @@ $(function() {
         removeChatTyping(data);
     });
 
+    
+
     /* Canvas */
 
     var canvas = document.getElementsByClassName('whiteboard')[0];
@@ -242,7 +244,7 @@ $(function() {
     canvas.addEventListener('mousedown', onMouseDown, false);
     canvas.addEventListener('mouseup', onMouseUp, false);
     canvas.addEventListener('mouseout', onMouseUp, false);
-    canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
+    canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
     for (var i = 0; i < colors.length; i++){
         colors[i].addEventListener('click', onColorUpdate, false);
     }
@@ -286,12 +288,11 @@ $(function() {
         drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
     }
 
-    function touchmove(e){
-        var touch=e.touches[0];
+    function onMouseMove(e){
         if (!drawing) { return; }
         drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
-        current.x = touch.clientX;
-        current.y = touch.clientY;
+        current.x = e.clientX;
+        current.y = e.clientY;
     }
 
     function onColorUpdate(e){
