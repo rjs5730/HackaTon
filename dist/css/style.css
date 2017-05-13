@@ -108,6 +108,7 @@ ul {
 .log {
   color: gray;
   font-size: 80%;
+
   margin: 5px;
   text-align: center;
 }
@@ -136,7 +137,9 @@ ul {
   padding-right: 15px;
   text-align: right;
 }
-
+#sendButton{
+  width:100%;
+}
 /* Input */
 
 .inputMessage {
@@ -148,7 +151,7 @@ ul {
   padding-left: 10px;
   position: absolute;
   right: 0;
-  width: 70%;
+  width: 100%;
 }
 
 
