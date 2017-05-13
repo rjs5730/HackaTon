@@ -219,6 +219,9 @@ ul {
     height:500px !important;
     width:100% !important;
   }
+  .colors{
+    display:none;
+  }
   .center-box {
     width: 100% !important;
   }
