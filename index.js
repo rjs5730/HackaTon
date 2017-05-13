@@ -42,7 +42,7 @@ var app = http.createServer(function(req, resp){
 
 var app = express()
   .use(SocketIOFileUploadServer.router)
-  .use(express.static(__dirname + "https://hackaton-prototype.herokuapp.com/"))
+  .use(express.static(__dirname + "/"))
   .listen(process.env.PORT || 3000);
 
 // app.use(express.static(path.join(__dirname, '/')));
