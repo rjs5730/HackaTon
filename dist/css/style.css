@@ -176,6 +176,9 @@ ul {
 .right-box{
   z-index:700;
 }
+.chat.page{
+  z-index:800;
+}
 .color {
   display: inline-block;
   height: 48px;
@@ -236,6 +239,8 @@ ul {
     height: 229px;
     position: absolute;
     width: 100%;
+    margin-top: 101px;
+
 }
 .color{
   width:20px;
