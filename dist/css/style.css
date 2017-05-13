@@ -181,6 +181,7 @@ ul {
 }
 .chat.page{
   z-index:800;
+  height:600px;
 }
 .color {
   display: inline-block;
