@@ -43,7 +43,7 @@ var app = http.createServer(function(req, resp){
 var app = express()
   .use(SocketIOFileUploadServer.router)
   .use(express.static(__dirname + "/"))
-  .listen(3000);
+  .listen(process.env.PORT || 3000);
 
 // app.use(express.static(path.join(__dirname, '/')));
  //app.use(SocketIOFileUploadServer.router);
