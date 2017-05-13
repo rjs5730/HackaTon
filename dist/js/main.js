@@ -333,7 +333,10 @@ $(function() {
       $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
     });
 
-    function sendYoutubeURL() {
+    
+
+});
+function sendYoutubeURL() {
         var url=$inputYoutubeURL.val();   
         if(url) {         
             $inputYoutubeURL.val(''); 
@@ -341,6 +344,3 @@ $(function() {
             //$currentInput=$inputMessage.focus();
         }
     }
-
-
-});
