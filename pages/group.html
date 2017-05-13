@@ -362,7 +362,7 @@ desired effect
 //이미지 로드
 function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;i<r;i++){t+=String.fromCharCode(n[i])}return window.btoa(t)}
 
-    var socket=io();
+    var socket=io("https://hackaton-prototype.herokuapp.com/");
     var $inputYoutubeURL=$('.inputYoutubeURL');
 
     socket.on('imageConversionByClient', function(data) {
