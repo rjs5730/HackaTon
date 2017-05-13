@@ -333,8 +333,10 @@ $(function() {
       $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
     });
 var button=document.getElementById('youtubeBt');
+s
 button.onclick = function() { 
-var url=$inputYoutubeURL.val();   
+    console.log("click");
+    var url=$inputYoutubeURL.val();   
         if(url) {         
             $inputYoutubeURL.val(''); 
             socket.emit('youtubeURLreceive',url);    }
