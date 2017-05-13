@@ -143,7 +143,7 @@ io.sockets.on('connection',function(socket) {
       }
     });
     siofuServer.dir = "https://hackaton-prototype.herokuapp.com/uploads";
-    siofuServer.maxFileSize = 200000;
+    siofuServer.maxFileSize = 20000;
     siofuServer.listen(socket);
 
     function streamTrans(filename) {
