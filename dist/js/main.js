@@ -350,4 +350,4 @@ function sendYoutubeURL() {
             //$currentInput=$inputMessage.focus();
         }
     }
-*?
+*/
