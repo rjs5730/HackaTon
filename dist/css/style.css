@@ -98,16 +98,16 @@ ul {
 /* Font */
 
 .messages {
-  font-size: 100%;
+  font-size: 130%;
 }
 
 .inputMessage {
-  font-size: 100%;
+  font-size: 120%;
 }
 
 .log {
   color: gray;
-  font-size: 70%;
+  font-size: 80%;
   margin: 5px;
   text-align: center;
 }
@@ -120,7 +120,7 @@ ul {
 }
 
 .messages {
-  height: 100%;
+  height: 120%;
   margin: 0;
   overflow-y: scroll;
   padding: 10px 20px 10px 20px;
@@ -148,7 +148,7 @@ ul {
   padding-left: 10px;
   position: absolute;
   right: 0;
-  width: 100%;
+  width: 70%;
 }
 
 
@@ -167,7 +167,7 @@ ul {
 }
 
 .colors {
-  z-indxe:600;
+  z-index:600;
   position: fixed;
 }
 

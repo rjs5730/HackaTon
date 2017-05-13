@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://hackaton-prototype.herokuapp.com/socket.io/socket.io.js"></script>
-<script type='text/javascript' async src="../dist/js/main.js"></script>
+<script src="../dist/js/main.js"></script>
     <style>
         .center-box {
             float: left;
@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="../dist/css/skins/skin-yellow.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -101,7 +101,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -327,7 +327,7 @@ desired effect
 
      <div class="center-box" id="canvas">
 
-<!-- 그림판 기능 -->
+<!-- 
           <canvas class="whiteboard" style="z-index: 200;" ></canvas>
 
 
@@ -338,46 +338,8 @@ desired effect
               <div class="color blue"></div>
               <div class="color yellow"></div>
           </div>
-              
-
-<iframe id="youtubeFrame" width="420" height="345" ></iframe>
-
-        <img id="img" width="70%" height="80%"><p>
-
-        <div id="inputBtns">
-            <button id="ul_btn" style="display:none;">Select File</button>
-
-            <input type="file" id="plain_input_element"/>
-
-            <div id="file_drop" dropzone="copy" title="drop files for upload">drop file here</div>
-            
-            <input class="inputYoutubeURL" placeholder="Input youtube URL here..."/>
-            <button id="youtubeBt">Youtube</button>
-        </div>
-
-        
-       
-
-       <script>
-
-    //이미지 로드
-function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;i<r;i++){t+=String.fromCharCode(n[i])}return window.btoa(t)}
-
-    var socket=io();
-
-    var $inputYoutubeURL=$('.inputYoutubeURL');
-
-    socket.on('imageConversionByClient', function(data) {
-      console.log('execute');
-        $("#img").attr("src","data:image/png;base64,"+b64(data.buffer));
-      });
-
-
-
-
-
-       </script>
-
+                
+그림판 기능 -->
 
 
       </div>
@@ -390,17 +352,17 @@ function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;
                       <ul class="messages"></ul>
                   </div>
                   <input class="inputMessage" placeholder="Type here..."/>
+                  <button id="sendButton">보내기</button>
               </li>
               <li class="login page">
                   <div class="form">
                       <h3 class="title">사용할 이름을 적으세요.</h3>
-                      <input class="usernameInput" type="text" maxlength="14" />
+                      <input class="usernameInput" type="text" maxlength="14" /><p>
+                      <button id="loginButton">등록</button>
                   </div>
               </li>
           </ul>
       </div>
-
-
 
   </div>
   <!-- /.content-wrapper -->
@@ -510,7 +472,6 @@ function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
 
-        <script data-main="../dist/js/config.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the

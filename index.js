@@ -4,7 +4,6 @@ var express=require('express'),
     url = require('url'),
     mime = require('mime'),
     fs = require('fs'),
-    SocketIOFileUploadServer = require('https://hackaton-prototype.herokuapp.com/fileServer'),
     //app=express(),
     http=require('http'),
     socketio=require('socket.io'),
@@ -120,38 +119,6 @@ io.sockets.on('connection',function(socket) {
           socket.broadcast.emit('youtubeURL',data);
           console.log('execute'+data);
     });
-
-    //파일 업로드 부분
-  var siofuServer = new SocketIOFileUploadServer();
-    siofuServer.on("saved", function(event){
-      //console.log(event.file);
-      console.log(event.file.name);
-      event.file.clientDetail.base = event.file.base;
-      var filename='https://hackaton-prototype.herokuapp.com/uploads/'+event.file.name;
-      streamTrans(filename);
-
-    });
-    siofuServer.on("error", function(data){
-      console.log("Error: "+data.memo);
-
-      console.log(data.error);
-    });
-    siofuServer.on("start", function(event){
-      if (/\.exe$/.test(event.file.name)) {
-        console.log("Aborting: " + event.file.id);
-        siofuServer.abort(event.file.id, socket);
-      }
-    });
-    siofuServer.dir = "https://hackaton-prototype.herokuapp.com/uploads";
-    siofuServer.maxFileSize = 20000;
-    siofuServer.listen(socket);
-
-    function streamTrans(filename) {
-         fs.readFile(filename, function(err, data){
-          socket.broadcast.emit('imageConversionByClient', { image: true, buffer: data });
-          //socket.broadcast.emit('imageConversionByServer', "data:image/png;base64,"+ data.toString("base64"));
-  });
-    }
 
 
 });
