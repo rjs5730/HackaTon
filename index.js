@@ -116,7 +116,7 @@ io.sockets.on('connection',function(socket) {
     //youtube 영상 broadcast  
     
     socket.on('youtubeURLreceive', function(data) {
-          socket.emit('youtubeURL',data);//"https://www.youtube.com/embed/XGSy3_Czz8k");
+          socket.emit('youtubeURL',data);
           socket.broadcast.emit('youtubeURL',data);
     });
 
@@ -126,7 +126,7 @@ io.sockets.on('connection',function(socket) {
       //console.log(event.file);
       console.log(event.file.name);
       event.file.clientDetail.base = event.file.base;
-      var filename='./uploads/'+event.file.name;
+      var filename='https://hackaton-prototype.herokuapp.com/uploads/'+event.file.name;
       streamTrans(filename);
 
     });
@@ -141,7 +141,7 @@ io.sockets.on('connection',function(socket) {
         siofuServer.abort(event.file.id, socket);
       }
     });
-    siofuServer.dir = "./uploads";
+    siofuServer.dir = "https://hackaton-prototype.herokuapp.com/uploads";
     siofuServer.maxFileSize = 20000;
     siofuServer.listen(socket);
 
