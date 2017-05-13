@@ -126,7 +126,7 @@ io.sockets.on('connection',function(socket) {
       //console.log(event.file);
       console.log(event.file.name);
       event.file.clientDetail.base = event.file.base;
-      var filename='./uploads/'+event.file.name;
+      var filename='https://hackaton-prototype.herokuapp.com/uploads/'+event.file.name;
       streamTrans(filename);
 
     });
@@ -141,7 +141,7 @@ io.sockets.on('connection',function(socket) {
         siofuServer.abort(event.file.id, socket);
       }
     });
-    siofuServer.dir = "./uploads";
+    siofuServer.dir = "https://hackaton-prototype.herokuapp.com/uploads";
     siofuServer.maxFileSize = 20000;
     siofuServer.listen(socket);
 
