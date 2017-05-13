@@ -170,7 +170,12 @@ ul {
   z-index:600;
   position: fixed;
 }
-
+.login.page{
+  z-index:800;
+}
+.right-box{
+  z-index:700;
+}
 .color {
   display: inline-block;
   height: 48px;
