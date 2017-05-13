@@ -42,7 +42,7 @@ var app = http.createServer(function(req, resp){
 
 var app = express()
   .use(SocketIOFileUploadServer.router)
-  .use(express.static(__dirname + "/"))
+  .use(express.static(__dirname + "https://hackaton-prototype.herokuapp.com/"))
   .listen(process.env.PORT || 3000);
 
 // app.use(express.static(path.join(__dirname, '/')));
@@ -116,7 +116,7 @@ io.sockets.on('connection',function(socket) {
     //youtube 영상 broadcast  
     
     socket.on('youtubeURLreceive', function(data) {
-          socket.emit('youtubeURL',data);//"https://www.youtube.com/embed/XGSy3_Czz8k");
+          socket.emit('youtubeURL',data);
           socket.broadcast.emit('youtubeURL',data);
     });
 
