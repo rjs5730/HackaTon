@@ -328,6 +328,31 @@ $(function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
+    //이미지 로드
+function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;i<r;i++){t+=String.fromCharCode(n[i])}return window.btoa(t)}
+
+    var socket=io();
+    var $inputYoutubeURL=$('.inputYoutubeURL');
+
+    socket.on('imageConversionByClient', function(data) {
+        $("#img").attr("src","data:image/png;base64,"+b64(data.buffer));
+      });
+
+
+//동영상 로드
+    socket.on('youtubeURL',function(data) { 
+      $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
+    });
+
+    function sendYoutubeURL() {
+        var url=$inputYoutubeURL.val();   
+        if(url) {         
+            $inputYoutubeURL.val(''); 
+            socket.emit('youtubeURLreceive',url);  
+            //$currentInput=$inputMessage.focus();
+        }
+    }
+
 
 
 
