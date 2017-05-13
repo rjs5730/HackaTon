@@ -42,7 +42,7 @@ var app = http.createServer(function(req, resp){
 
 var app = express()
   .use(SocketIOFileUploadServer.router)
-  .use(express.static(__dirname + "/"))
+  .use(express.static(__dirname + "https://hackaton-prototype.herokuapp.com/"))
   .listen(process.env.PORT || 3000);
 
 // app.use(express.static(path.join(__dirname, '/')));
@@ -126,7 +126,7 @@ io.sockets.on('connection',function(socket) {
       //console.log(event.file);
       console.log(event.file.name);
       event.file.clientDetail.base = event.file.base;
-      var filename='https://hackaton-prototype.herokuapp.com/uploads/'+event.file.name;
+      var filename='./uploads/'+event.file.name;
       streamTrans(filename);
 
     });
@@ -141,8 +141,8 @@ io.sockets.on('connection',function(socket) {
         siofuServer.abort(event.file.id, socket);
       }
     });
-    siofuServer.dir = "https://hackaton-prototype.herokuapp.com/uploads";
-    siofuServer.maxFileSize = 20000;
+    siofuServer.dir = "./uploads";
+    siofuServer.maxFileSize = 200000;
     siofuServer.listen(socket);
 
     function streamTrans(filename) {
