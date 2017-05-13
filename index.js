@@ -12,7 +12,7 @@ var express=require('express'),
  
 
 var app = http.createServer(function(req, resp){
-  var filename = path.join(__dirname, "./", url.parse(req.url).pathname);
+  var filename = path.join(__dirname, "https://hackaton-prototype.herokuapp.com/", url.parse(req.url).pathname);
   (fs.exists || path.exists)(filename, function(exists){
     if (exists) {
       fs.readFile(filename, function(err, data){
