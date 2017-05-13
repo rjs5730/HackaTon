@@ -338,6 +338,7 @@ var url=$inputYoutubeURL.val();
         if(url) {         
             $inputYoutubeURL.val(''); 
             socket.emit('youtubeURLreceive',url);    }
+        }
 
 });
 /*
