@@ -1,7 +1,7 @@
 requirejs.config({
 	paths: {
 		"SocketIOFileUpload": "/siofu/client",
-		"socket.io": "/socket.io/socket.io"
+		"socket.io": "https://hackaton-prototype.herokuapp.com/socket.io/socket.io"
 	}
 });
 
