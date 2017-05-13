@@ -323,7 +323,7 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
-       
+       <iframe id="youtubeFrame" width="420" height="345" ></iframe>
 
      <div class="center-box" id="canvas">
 
@@ -355,7 +355,7 @@ desired effect
             <button onclick="sendYoutubeURL()">Youtube</button>
         </div>
 
-        <iframe id="youtubeFrame" width="420" height="345" ></iframe>
+        
        
 
        <script>
@@ -373,19 +373,7 @@ function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;
       });
 
 
-//동영상 로드
-    socket.on('youtubeURL',function(data) { 
-      $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
-    });
 
-    function sendYoutubeURL() {
-        var url=$inputYoutubeURL.val();   
-        if(url) {         
-            $inputYoutubeURL.val(''); 
-            socket.emit('youtubeURLreceive',url);  
-            //$currentInput=$inputMessage.focus();
-        }
-    }
 
 
        </script>

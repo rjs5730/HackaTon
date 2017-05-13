@@ -328,7 +328,19 @@ $(function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
+//동영상 로드
+    socket.on('youtubeURL',function(data) { 
+      $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
+    });
 
+    function sendYoutubeURL() {
+        var url=$inputYoutubeURL.val();   
+        if(url) {         
+            $inputYoutubeURL.val(''); 
+            socket.emit('youtubeURLreceive',url);  
+            //$currentInput=$inputMessage.focus();
+        }
+    }
 
 
 });
