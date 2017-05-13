@@ -60,8 +60,8 @@ desired effect
 
     <!-- Logo -->
     <a href="index.html" class="logo">
-      <span class="logo-mini"><b>A</b>LT</span>
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-mini"><b>P</b>C</span>
+      <span class="logo-lg"><b>PEANUT</b>CHAT</span>
     </a>
 
     <!-- Header Navbar -->
@@ -78,7 +78,7 @@ desired effect
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+<!--               <span class="label label-success">4</span> -->
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
@@ -114,7 +114,7 @@ desired effect
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+<!--               <span class="label label-warning">10</span> -->
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
@@ -175,7 +175,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Guest</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -236,7 +236,7 @@ desired effect
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Guest</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -261,20 +261,9 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/pages/group.html"><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <li class="active"><a href="/pages/group.html"><i class="fa fa-link"></i> <span>PeaNut</span></a></li>
         
 
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
 
       </ul>
       <!-- /.sidebar-menu -->
@@ -286,13 +275,19 @@ desired effect
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="min-height: 585px;background-size: 100% 100%;background-image: url('main_img.jpg');">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
+    <section class="content-header" style="
+    padding-top: 200px;
+    text-align: center;
+    color: white;">
+      <h1 style="
+    font-size: 60px;
+    font-weight: 800;
+">
+        YOU JUST PEANUT CHAT!!
       </h1>
+      <a href="/pages/group.html"><div class="main_text">START</div></a>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -411,4 +406,14 @@ desired effect
      user experience. Slimscroll is required when using the
      fixed layout. -->
 </body>
+<style>
+.main_text{
+  margin:auto;margin-top:200px;width:200px;height:50px;background-color: black;border-radius:15px;opacity: 0.8;font-weight: 800;font-size: 31px;
+  cursor:pointer;
+      color: white;
+}
+.main_text:hover{
+  opacity:1;
+}
+</style>
 </html>

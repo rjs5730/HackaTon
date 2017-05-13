@@ -14,7 +14,7 @@ app.get('/', function(req,res) {
 });
  
 server=http.Server(app);
-server.listen(process.env.PORT || 3000);
+server.listen(3000);
  
 app.io=socketIO(server);
  

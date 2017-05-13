@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="../dist/js/main.js"></script>
+<script src="../dist/js/main.js"></script>
     <style>
         .center-box {
             float: left;
@@ -32,10 +32,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
       display: block;
       z-index: 1;
     }
-
     .example-modal .modal {
       background: transparent !important;
     }
+.flashs{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  top: 0;
+  background-color: #3AC8DE;
+  box-shadow: 0 0 6px 6px #3AC8DE;
+  text-align: center;
+  font-size: 20px;
+}
+#ul_form{
+  display: none;
+}
+#file_drop{
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+  text-align: center;
+   background-color: #3AC8DE;
+}
+
     </style>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -88,8 +109,8 @@ desired effect
 
     <!-- Logo -->
     <a href="../index.html" class="logo">
-      <span class="logo-mini"><b>A</b>LT</span>
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-mini"><b>P</b>C</span>
+      <span class="logo-lg"><b>PEANUT</b>CHAT</span>
     </a>
 
     <!-- Header Navbar -->
@@ -203,7 +224,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs" id="yourNick">Guest</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -211,7 +232,7 @@ desired effect
                 <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  Guest - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -264,7 +285,7 @@ desired effect
           <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p id="yourNick2">Guest</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -289,21 +310,8 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="../pages/group.html"><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <li class="active"><a href="../pages/group.html"><i class="fa fa-link"></i> <span>PeaNut</span></a></li>
         
-
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
-
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -315,21 +323,72 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 
+       
 
      <div class="center-box" id="canvas">
 
-          <canvas class="whiteboard" ></canvas>
+<!-- 그림판 기능 -->
+          <canvas class="whiteboard" style="z-index: 200;" ></canvas>
 
-          <div class="colors">
+
+       <div class="colors">
               <div class="color black"></div>
               <div class="color red"></div>
               <div class="color green"></div>
               <div class="color blue"></div>
               <div class="color yellow"></div>
           </div>
+              
 
-    </div>
-      
+
+
+        <img id="img" width="70%" height="80%"><p>
+
+        <div id="inputBtns">
+            <button id="ul_btn" style="display:none;">Select File</button>
+
+            <input type="file" id="plain_input_element"/>
+
+            <div id="file_drop" dropzone="copy" title="drop files for upload">drop file here</div>
+            
+            <input class="inputYoutubeURL" placeholder="Input youtube URL here..."/>
+            <button onclick="sendYoutubeURL()">Youtube</button>
+        </div>
+
+        <iframe id="youtubeFrame" width="420" height="345" ></iframe>
+       
+
+       <script>
+//이미지 로드
+function b64(e){var t="";var n=new Uint8Array(e);var r=n.byteLength;for(var i=0;i<r;i++){t+=String.fromCharCode(n[i])}return window.btoa(t)}
+
+    var socket=io();
+    var $inputYoutubeURL=$('.inputYoutubeURL');
+
+    socket.on('imageConversionByClient', function(data) {
+        $("#img").attr("src","data:image/png;base64,"+b64(data.buffer));
+      });
+
+
+//동영상 로드
+    socket.on('youtubeURL',function(data) { 
+      $("#youtubeFrame").attr("src",data+"?rel=0&autoplay=1");
+    });
+
+    function sendYoutubeURL() {
+        var url=$inputYoutubeURL.val();   
+        if(url) {         
+            $inputYoutubeURL.val(''); 
+            socket.emit('youtubeURLreceive',url);  
+            //$currentInput=$inputMessage.focus();
+        }
+    }
+
+       </script>
+
+
+
+      </div>
 
       <div class='right-box' id="chat">
 
@@ -458,6 +517,8 @@ desired effect
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
+
+        <script data-main="../dist/js/config.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the

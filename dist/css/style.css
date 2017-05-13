@@ -91,7 +91,7 @@ ul {
 .chat.page {
   margin: 2px;
   padding: 2px;
-  border: solid 2px #c9c9c9;
+  border: solid 2px #c9  c9c9;
   display: none;
 }
 
@@ -158,7 +158,6 @@ ul {
  */
 
 .whiteboard {
-  height: 100%;
   position: absolute;
   left: 0;
   right: 0;
@@ -168,6 +167,7 @@ ul {
 }
 
 .colors {
+  z-indxe:600;
   position: fixed;
 }
 
@@ -182,3 +182,61 @@ ul {
 .color.green { background-color: green; }
 .color.blue { background-color: blue; }
 .color.yellow { background-color: yellow; }
+#youtubeFrame{
+    position: absolute;
+    top: 104px;
+    left: 230px;
+    width: 636px;
+
+}
+#img {
+  position: absolute;
+    top: 104px;
+    left: 230px;
+    width: 636px;
+    height: 350px;
+}
+#inputBtns{
+    position:absolute;
+    bottom: 62px;
+    z-index:600;
+}
+
+@media screen and (max-width:768px) {
+  .content-wrapper{
+    height:500px !important;
+    width:100% !important;
+  }
+  .center-box {
+    width: 100% !important;
+  }
+  .whiteboard {
+    height:400px;
+    width: 100% !important;
+}
+  .main-footer{
+    display:none;
+  }
+  .right-box {
+    float:left !important;
+    width:100% !important;
+}
+.pages {
+        height: 234px;
+    margin-top: 301px;
+    width: 100%;
+}
+.page {
+    margin-top:0px;
+    height: 229px;
+    position: absolute;
+    width: 100%;
+}
+.color{
+  width:20px;
+  height:20px;
+}
+.breadcrumb{
+  display:none !important ;
+}
+}

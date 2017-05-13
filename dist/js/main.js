@@ -30,6 +30,9 @@ $(function() {
         username=cleanInput($usernameInput.val().trim() ); //닉네임 변수 설정
 
         if(username) {   //이름을 입력하였을 경우 로그인 페이지 사라지고 채팅 페이지 온
+            $("#yourNick").text($usernameInput.val());
+            $("#yourNick2").text($usernameInput.val());
+            console.log($usernameInput.val());
             $loginPage.fadeOut();  //jquery 숨기는 함수.
             $chatPage.show();      //jquery 보이게 하는 함수.
             $loginPage.off('click');   // loginPage의 click이벤트 삭제
@@ -247,13 +250,11 @@ $(function() {
     canvas.addEventListener('mouseup', onMouseUp, false);
     canvas.addEventListener('mouseout', onMouseUp, false);
     canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
-
     for (var i = 0; i < colors.length; i++){
         colors[i].addEventListener('click', onColorUpdate, false);
     }
 
     socket.on('drawing', onDrawingEvent);
-
     window.addEventListener('resize', onResize, false);
     onResize();
 
@@ -300,7 +301,7 @@ $(function() {
     }
 
     function onColorUpdate(e){
-        current.color = e.target.className.split(' ')[1];
+            current.color = e.target.className.split(' ')[1];
     }
 
     // limit the number of events per second
@@ -317,14 +318,14 @@ $(function() {
     }
 
     function onDrawingEvent(data){
+        console.log("log");
         var w = canvas.width;
         var h = canvas.height;
         drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
     }
-
     // make the canvas fill its parent
     function onResize() {
-        canvas.width = window.innerWidth*0.7;
+        canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
 
