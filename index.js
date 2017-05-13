@@ -116,7 +116,7 @@ io.sockets.on('connection',function(socket) {
     //youtube 영상 broadcast  
     
     socket.on('youtubeURLreceive', function(data) {
-          socket.emit('youtubeURL',data);
+          //socket.emit('youtubeURL',data);
           socket.broadcast.emit('youtubeURL',data);
           console.log('execute'+data);
     });
