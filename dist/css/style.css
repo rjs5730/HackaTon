@@ -93,6 +93,7 @@ ul {
   padding: 2px;
   border: solid 2px #c9  c9c9;
   display: none;
+      z-index: 800;
 }
 
 /* Font */
@@ -108,7 +109,6 @@ ul {
 .log {
   color: gray;
   font-size: 80%;
-
   margin: 5px;
   text-align: center;
 }
@@ -137,9 +137,7 @@ ul {
   padding-right: 15px;
   text-align: right;
 }
-#sendButton{
-  width:100%;
-}
+
 /* Input */
 
 .inputMessage {
@@ -173,16 +171,7 @@ ul {
   z-index:600;
   position: fixed;
 }
-.login.page{
-  z-index:800;
-}
-.right-box{
-  z-index:700;
-}
-.chat.page{
-  z-index:800;
-  height:600px;
-}
+
 .color {
   display: inline-block;
   height: 48px;
@@ -197,15 +186,16 @@ ul {
 #youtubeFrame{
     position: absolute;
     top: 104px;
-    left: 230px;
-    width: 636px;
+    width: 523px;
 
+}
+.login.page {
+    z-index: 800;
 }
 #img {
   position: absolute;
     top: 104px;
-    left: 230px;
-    width: 636px;
+    width: 523px;
     height: 350px;
 }
 #inputBtns{
@@ -219,14 +209,8 @@ ul {
     height:500px !important;
     width:100% !important;
   }
-  .colors{
-    display:none;
-  }
   .center-box {
     width: 100% !important;
-  }
-  .chat.page{
-    height:250px;
   }
   .whiteboard {
     height:400px;
@@ -241,7 +225,7 @@ ul {
 }
 .pages {
         height: 234px;
-    margin-top: 101px;
+    margin-top: 301px;
     width: 100%;
 }
 .page {
@@ -249,9 +233,6 @@ ul {
     height: 229px;
     position: absolute;
     width: 100%;
-}
-.content-wrapper, .right-side{
-  height:900px !important;
 }
 .color{
   width:20px;

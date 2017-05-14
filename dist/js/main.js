@@ -22,35 +22,9 @@ $(function() {
     var connected=false;
     var typing=false;
     var lastTypingTime;
+    var $currentInput=$usernameInput.focus();
+
     var socket=io();
-
-    var loginButton=document.getElementById('loginButton');
-    var inputmsg=document.getElementById('inputmsg');
-    var sendButton=document.getElementById('sendButton');
-    var inputid=document.getElementById('inputid');
-
-    loginButton.onclick = function()
-    {
-        setUsername();
-    }
-    sendButton.onclick = function()
-    {
-        sendMessage();
-    }
-    inputmsg.onkeydown=function() 
-    {
-        if(event.keyCode==13)
-        {
-         sendMessage();
-        }
-     }
-     inputid.onkeydown=function() 
-    {
-        if(event.keyCode==13)
-        {
-         setUsername();
-        }
-     }
 
     function setUsername() {
         username=cleanInput($usernameInput.val().trim() ); //닉네임 변수 설정
@@ -62,7 +36,7 @@ $(function() {
             $loginPage.fadeOut();  //jquery 숨기는 함수.
             $chatPage.show();      //jquery 보이게 하는 함수.
             $loginPage.off('click');   // loginPage의 click이벤트 삭제
-         
+            $currentInput=$inputMessage.focus();  //키보드 입력포인트를 메세지 입력으로 변경
 
             socket.emit('add user',username);  //서버에게 사용자가 추가됨을 알림.
         }
@@ -190,11 +164,26 @@ $(function() {
         return COLORS[index];
     }
 
+    $window.keydown(function(event) {
+       if(!(event.ctrlKey || event.metaKey || event.altKey)) {
+           $currentInput.focus();
+       }
+       if(event.which===13) {
+           if(username) {
+               sendMessage();
+           } else {
+               setUsername();
+           }
+       }
+    });
 
     $inputMessage.on('input',function() {
        updateTyping();
     });
 
+    $loginPage.click(function() {
+        $currentInput.focus();
+    });
 
     $inputMessage.click(function() {
         $inputMessage.focus();
@@ -245,7 +234,6 @@ $(function() {
         removeChatTyping(data);
     });
 
-    
 
     /* Canvas */
 
