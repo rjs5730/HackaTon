@@ -35,8 +35,10 @@ $(function() {
     {
         sendMessage();
     }
-    $("#inputmsg").keyup(function(e){if(e.keyCode == 13)  sendMessage();});
-
+    inputmsg.onkeyDown=function() 
+    {
+         sendMessage();
+     }
 
     function setUsername() {
         username=cleanInput($usernameInput.val().trim() ); //닉네임 변수 설정
