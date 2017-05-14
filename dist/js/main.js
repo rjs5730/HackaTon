@@ -25,6 +25,7 @@ $(function() {
     var socket=io();
 
     var loginButton=document.getElementById('loginButton');
+    var inputmsg=document.getElementById('inputmsg');
     var sendButton=document.getElementById('sendButton');
     loginButton.onclick = function()
     {
@@ -34,6 +35,8 @@ $(function() {
     {
         sendMessage();
     }
+    $("#inputMessage").keyup(function(e){if(e.keyCode == 13)  sendMessage();});
+
 
     function setUsername() {
         username=cleanInput($usernameInput.val().trim() ); //닉네임 변수 설정
