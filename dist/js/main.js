@@ -27,6 +27,8 @@ $(function() {
     var loginButton=document.getElementById('loginButton');
     var inputmsg=document.getElementById('inputmsg');
     var sendButton=document.getElementById('sendButton');
+    var inputid=document.getElementById('inputid');
+
     loginButton.onclick = function()
     {
         setUsername();
@@ -40,6 +42,13 @@ $(function() {
         if(event.keyCode==13)
         {
          sendMessage();
+        }
+     }
+     inputid.onkeydown=function() 
+    {
+        if(event.keyCode==13)
+        {
+         setUsername();
         }
      }
 
