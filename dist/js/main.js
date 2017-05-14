@@ -35,7 +35,7 @@ $(function() {
     {
         sendMessage();
     }
-    inputmsg.onkeyDown=function() 
+    inputmsg.onkeydown=function() 
     {
          sendMessage();
      }
