@@ -37,7 +37,10 @@ $(function() {
     }
     inputmsg.onkeydown=function() 
     {
+        if(event.keyCode==13)
+        {
          sendMessage();
+        }
      }
 
     function setUsername() {
