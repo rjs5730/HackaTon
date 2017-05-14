@@ -35,7 +35,7 @@ $(function() {
     {
         sendMessage();
     }
-    $("#inputMessage").keyup(function(e){if(e.keyCode == 13)  sendMessage();});
+    $("#inputmsg").keyup(function(e){if(e.keyCode == 13)  sendMessage();});
 
 
     function setUsername() {
